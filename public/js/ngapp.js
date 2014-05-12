@@ -5,6 +5,10 @@ app.config(['$routeProvider', function($routeProvider){
           templateUrl: 'partials/list',
           controller: 'ListCtrl'
       })
+      .when('/positions', {
+          templateUrl: 'partials/positions',
+          controller: 'PosCtrl'
+      })
       .otherwise({
           redirectTo: '/list'
       });
@@ -23,4 +27,9 @@ app.controller('ListCtrl', ['$scope', function($scope){
         $scope.players.push({name: $scope.newPlayer});
         $scope.newPlayer = "";
     }
-}])
+}]);
+
+app.controller('PosCtrl', ['$scope', function($scope){
+    $scope.positions = [{name: 'First Base', abbr: '1B'}];
+    
+}]);

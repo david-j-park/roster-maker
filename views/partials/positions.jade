@@ -1,0 +1,11 @@
+h3 Positions
+table.table
+    thead
+        tr
+            th Name
+            th Abbreviation
+    tbody
+        tr(ng-repeat="p in positions")
+            td {{p.name}}
+            td {{p.abbr}}
+            
