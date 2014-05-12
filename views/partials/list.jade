@@ -1,0 +1,14 @@
+table.table
+    thead
+        th Index
+        th Name
+    tbody(ui-sortable, ng-model="players")
+        tr(ng-repeat="p in players")
+            td {{$index + 1}}
+            td {{p.name}}
+    tfoot
+        tr
+            td &nbsp;
+            td 
+                input(type="text",ng-model="newPlayer") 
+                button.btn.btn-primary(ng-click="addPlayer()") Add
