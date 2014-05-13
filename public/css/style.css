@@ -1,0 +1,7 @@
+.draggable-item {
+	cursor: move;
+}
+
+.gamegrid li {
+	padding: 5px;
+}

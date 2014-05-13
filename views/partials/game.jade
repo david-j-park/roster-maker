@@ -1,14 +1,14 @@
 h3 Game Builder
-.container
+.gamegrid
 	div
 		button.btn.btn-success(ng-click="addInning()") Add Inning
 	.col-sm-2
 		.tools
 			&nbsp;
 		ul
-			li(ng-repeat="p in players") {{p.name}}
+			li.list-unstyled(ng-repeat="p in players") {{p.name}}
 	.col-sm-1(ng-repeat="i in innings")
 		.tools 
 			a(ng-click="shuffle($index)") Shuffle
 		ul(ng-model="i.positions",ui-sortable)
-			li(ng-repeat="p in i.positions") {{p.abbr}}
+			li.list-unstyled.draggable-item(ng-repeat="p in i.positions") {{p.abbr}}
