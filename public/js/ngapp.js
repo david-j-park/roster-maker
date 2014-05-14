@@ -63,8 +63,18 @@ app.config(['$routeProvider', function($routeProvider){
 
 app.controller('ListCtrl', ['$scope', function($scope){
     $scope.players = getPlayers();
+    $scope.editIndex = -1;
     
     $scope.newPlayer = "";
+    
+    $scope.editPlayer = function(i){
+    	$scope.editIndex = i;
+    }
+    
+    $scope.finishEdit = function(){
+    	$scope.editIndex = -1;
+    	savePlayers($scope.players);	
+    }
     
     $scope.addPlayer = function(){
         $scope.players.push({name: $scope.newPlayer});
@@ -79,14 +89,36 @@ app.controller('PosCtrl', ['$scope', function($scope){
 }]);
 
 app.controller('GameCtrl', ['$scope', function($scope){
-	
+	$scope.showPlayers = true;
 	$scope.players = getPlayers();
 	$scope.innings = [];
+	$scope.absent = [];
 	$scope.addInning = function(){
 		var p = positions.slice(0);
 		while (p.length < $scope.players.length) p.push({name: 'Bench', abbr: 'BENCH', infield: false});
 		var i = {number: $scope.innings.length + 1, positions: p};
 		$scope.innings.push(i);
+	}
+	
+	$scope.removePlayer = function(index){
+		$scope.absent.push($scope.players.splice(index, 1)[0]);
+		var position, ps;
+		for (var i=0; i<$scope.innings.length; i++){
+			ps = $scope.innings[i].positions;
+			//get corresponding position for that player
+			position = ps.splice(index, 1)[0];
+			if (position.abbr != 'BENCH'){
+				//find the first benched player and replace their position with this one
+				for(var j=0,m=ps.length; j<m; j++){
+					if (ps[j].abbr == 'BENCH') {
+						ps[j] = position;
+						break
+					}
+					if (j == m-1) ps.push(position); //no bencies left, show this one at the end, unassigned.
+				}
+			}
+			
+		}
 	}
 	
 	$scope.shuffle = function(inning){

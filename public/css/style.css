@@ -1,7 +1,14 @@
 .draggable-item {
 	cursor: move;
+	border: dotted 1px #eee;
 }
 
 .gamegrid li {
 	padding: 5px;
+}
+
+a.delete {
+	float: right;
+	display: inline-block;
+	cursor: pointer
 }
