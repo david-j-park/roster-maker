@@ -13,4 +13,4 @@ app.get("/partials/:tpl", function(req, res){
 
 app.use(express.static(__dirname + "/public"));
 
-app.listen(8000);
+app.listen(process.env.PORT || 8000);
