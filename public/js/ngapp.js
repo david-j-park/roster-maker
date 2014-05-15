@@ -100,6 +100,16 @@ app.controller('GameCtrl', ['$scope', function($scope){
 		$scope.innings.push(i);
 	}
 	
+	$scope.restorePlayer = function(index){
+		$scope.players.push($scope.absent.splice(index, 1)[0]);
+		for (var i=0; i<$scope.innings.length; i++){
+			if ($scope.innings[i].positions.length < $scope.players.length){
+				$scope.innings[i].positions.push({name: 'Bench', abbr: 'BENCH', infield: false});
+			}
+		}
+		
+	}
+	
 	$scope.removePlayer = function(index){
 		$scope.absent.push($scope.players.splice(index, 1)[0]);
 		var position, ps;

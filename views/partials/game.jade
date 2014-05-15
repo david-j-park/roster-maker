@@ -17,4 +17,5 @@ div.row
 .row
 	h4 Not Playing
 	ul
-		li.list-inline(ng-repeat="p in absent") Out: {{ p.name }}
+		li.list-inline(ng-repeat="p in absent") {{ p.name }}
+			a(ng-click="restorePlayer($index)") (Restore)
