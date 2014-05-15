@@ -11,10 +11,24 @@ var positions = [{name: 'First Base', abbr: '1B', infield: true},
                  {name: 'Center Field', abbr: 'CF', infield: false},
                  {name: 'Outfield Rover', abbr: 'OR', infield: false}];
 
+var players = [{name: 'Jack'},
+               {name: 'Ethan'},
+               {name: 'Travis'},
+               {name: 'Austin'},
+               {name: 'Marcelo'},
+               {name: 'Cooper'},
+               {name: 'Anthony'},
+               {name: 'Aidan'},
+               {name: 'Edison'},
+               {name: 'Andrew'},
+               {name: 'Quinn'},
+               {name: 'Heinrich'}];
+
+
 function getPlayers(){
 	var p = localStorage.getItem("Players");
 	if (p != null) return JSON.parse(p);
-	return [];
+	return players;
 }
 
 function savePlayers(p){
