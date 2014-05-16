@@ -1,8 +1,11 @@
 {
-    "name": "SortFiddle",
-    "version": "0.1.0",
-    "dependencies": {
-        "express": "3.4.8",
-        "jade": "*"
-    }
+  "name": "rostermaker",
+  "description": "Simple tool for tball and little league coaches to manage their rosters.",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "3.4.8",
+    "jade": "*",
+    "mongoose": "~3.8.9",
+    "nconf": "~0.6.9"
+  }
 }
