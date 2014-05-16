@@ -1,5 +1,9 @@
 var express = require('express')
-, app = express();
+, app = express()
+, nconf = require('nconf');
+
+/* configuration setup */
+nconf.argv().env().file({file: './config/config.json'})
 
 app.set('view engine', 'jade');
 
