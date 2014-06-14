@@ -108,10 +108,19 @@ app.controller('GameCtrl', ['$scope', function($scope){
 	$scope.innings = [];
 	$scope.absent = [];
 	$scope.addInning = function(){
-		var p = positions.slice(0);
-		while (p.length < $scope.players.length) p.push({name: 'Bench', abbr: 'BENCH', infield: false});
-		var i = {number: $scope.innings.length + 1, positions: p};
-		$scope.innings.push(i);
+		if ($scope.innings.length == 0){
+			//create a new inning with enough positions for the whole team
+			var p = positions.slice(0);
+			while (p.length < $scope.players.length) p.push({name: 'Bench', abbr: 'BENCH', infield: false});
+			var i = {number: $scope.innings.length + 1, positions: p};
+			$scope.innings.push(i);
+		}
+		else {
+			//copy the previous inning
+			var i = angular.copy($scope.innings[$scope.innings.length - 1]);
+			i.number++;
+			$scope.innings.push(i);
+		}
 	}
 	
 	$scope.restorePlayer = function(index){
