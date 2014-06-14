@@ -149,6 +149,10 @@ app.controller('GameCtrl', ['$scope', function($scope){
 		shuffle($scope.innings[inning].positions)
 	}
 	
+	$scope.shift = function(inning){
+		$scope.innings[inning].positions.unshift($scope.innings[inning].positions.pop());
+	}
+	
 	//add one inning by default
 	$scope.addInning();
 }]);
