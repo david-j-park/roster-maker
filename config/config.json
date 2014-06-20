@@ -1,4 +1,6 @@
 {
 	"PORT": 8000,
-	"DBURL": "mongodb://webuser:whopper22@oceanic.mongohq.com:10008/app25208384"
+	"DBURL": "mongodb://webuser:whopper22@oceanic.mongohq.com:10008/app25208384",
+	"FBAPPID": "327828344034941",
+	"FBSECRET": "ac59bb616373de7dc2f07c81ef1f4bd8"
 }
